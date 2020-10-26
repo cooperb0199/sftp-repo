@@ -1,0 +1,77 @@
+{
+	"name": "CopyPipeline_pez",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_pez",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "sftp-test//"
+					},
+					{
+						"name": "Destination",
+						"value": "/bc-sftp-test-bucket/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*"
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "SftpWriteSettings",
+							"maxConcurrentConnections": 2,
+							"copyBehavior": "PreserveHierarchy",
+							"operationTimeout": "01:00:00",
+							"useTempFileRename": false
+						}
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": false,
+					"skipErrorFile": {
+						"fileMissing": true
+					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"path": "sftp-test"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_pez",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_pez",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
