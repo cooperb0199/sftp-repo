@@ -29,7 +29,15 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFileName": "*"
+							"wildcardFolderPath": {
+								"value": "@pipeline().parameters.sourceFolder",
+								"type": "Expression"
+							},
+							"wildcardFileName": {
+								"value": "@pipeline().parameters.sourceFile",
+								"type": "Expression"
+							},
+							"deleteFilesAfterCompletion": false
 						},
 						"formatSettings": {
 							"type": "BinaryReadSettings"
@@ -61,7 +69,17 @@
 				"inputs": [
 					{
 						"referenceName": "SourceDataset_pez",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"sourceFolder": {
+								"value": "@pipeline().parameters.sourceFolder",
+								"type": "Expression"
+							},
+							"sourceFile": {
+								"value": "@pipeline().parameters.sourceFile",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [

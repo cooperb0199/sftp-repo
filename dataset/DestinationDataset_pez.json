@@ -15,10 +15,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "SftpLocation",
-				"fileName": {
-					"value": "@dataset().sourceFolder",
-					"type": "Expression"
-				},
 				"folderPath": "/dl-triplink-test123-use1-503014109099-raw"
 			}
 		}
