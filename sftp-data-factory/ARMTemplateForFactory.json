@@ -116,6 +116,10 @@
 									"sourceFolder": {
 										"value": "@pipeline().parameters.sourceFolder",
 										"type": "Expression"
+									},
+									"sourceFile": {
+										"value": "@pipeline().parameters.sourceFile",
+										"type": "Expression"
 									}
 								}
 							}
