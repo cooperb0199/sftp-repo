@@ -29,14 +29,6 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": {
-								"value": "@pipeline().parameters.sourceFolder",
-								"type": "Expression"
-							},
-							"wildcardFileName": {
-								"value": "@pipeline().parameters.sourceFile",
-								"type": "Expression"
-							},
 							"deleteFilesAfterCompletion": false
 						},
 						"formatSettings": {
@@ -55,9 +47,6 @@
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": false,
-					"skipErrorFile": {
-						"fileMissing": true
-					},
 					"logStorageSettings": {
 						"linkedServiceName": {
 							"referenceName": "AzureBlobStorage1",
