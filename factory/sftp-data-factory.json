@@ -1,4 +1,12 @@
 {
 	"name": "sftp-data-factory",
+	"properties": {
+		"globalParameters": {
+			"sourceFolder": {
+				"type": "string",
+				"value": "''"
+			}
+		}
+	},
 	"location": "westus"
 }
