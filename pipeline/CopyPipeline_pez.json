@@ -72,6 +72,16 @@
 				]
 			}
 		],
+		"parameters": {
+			"sourceFolder": {
+				"type": "string",
+				"defaultValue": "''"
+			},
+			"sourceFile": {
+				"type": "string",
+				"defaultValue": "''"
+			}
+		},
 		"annotations": []
 	}
 }
