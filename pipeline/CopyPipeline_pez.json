@@ -20,7 +20,7 @@
 					},
 					{
 						"name": "Destination",
-						"value": "/"
+						"value": "/bc-sftp-test-bucket/"
 					}
 				],
 				"typeProperties": {
@@ -42,7 +42,7 @@
 							"maxConcurrentConnections": 2,
 							"copyBehavior": "PreserveHierarchy",
 							"operationTimeout": "01:00:00",
-							"useTempFileRename": true
+							"useTempFileRename": false
 						}
 					},
 					"enableStaging": false,
@@ -69,7 +69,10 @@
 						"referenceName": "DestinationDataset_pez",
 						"type": "DatasetReference",
 						"parameters": {
-							"sourceFile": "''"
+							"sourceFolder": {
+								"value": "@pipeline().parameters.sourceFolder",
+								"type": "Expression"
+							}
 						}
 					}
 				]
