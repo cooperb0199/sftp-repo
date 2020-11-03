@@ -23,6 +23,14 @@
 			"type": "string",
 			"defaultValue": "triplink"
 		},
+		"sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFolder": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
 		"sftp-trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/885a071e-fd10-4d2d-bc9e-bc7d064f37a8/resourceGroups/sftp-test-group/providers/Microsoft.Storage/storageAccounts/sftp1test1storage"
@@ -65,6 +73,12 @@
 					},
 					"Sftp1_properties_typeProperties_userName": {
 						"value": "[parameters('Sftp1_properties_typeProperties_userName')]"
+					},
+					"sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFolder": {
+						"value": "[parameters('sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFolder')]"
+					},
+					"sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFile": {
+						"value": "[parameters('sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFile')]"
 					},
 					"sftp-trigger_properties_typeProperties_scope": {
 						"value": "[parameters('sftp-trigger_properties_typeProperties_scope')]"

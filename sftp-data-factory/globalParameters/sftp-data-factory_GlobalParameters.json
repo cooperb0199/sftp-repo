@@ -1,1 +1,6 @@
-{}
+{
+	"sourceFolder": {
+		"type": "string",
+		"value": "''"
+	}
+}

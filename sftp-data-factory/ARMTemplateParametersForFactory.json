@@ -17,6 +17,12 @@
 		"Sftp1_properties_typeProperties_userName": {
 			"value": "triplink"
 		},
+		"sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFolder": {
+			"value": "@triggerBody().folderPath"
+		},
+		"sftp-trigger_properties_CopyPipeline_pez_parameters_sourceFile": {
+			"value": "@triggerBody().fileName"
+		},
 		"sftp-trigger_properties_typeProperties_scope": {
 			"value": "/subscriptions/885a071e-fd10-4d2d-bc9e-bc7d064f37a8/resourceGroups/sftp-test-group/providers/Microsoft.Storage/storageAccounts/sftp1test1storage"
 		}
