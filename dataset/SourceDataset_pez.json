@@ -5,6 +5,16 @@
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sourceFolder": {
+				"type": "string",
+				"defaultValue": "''"
+			},
+			"sourceFile": {
+				"type": "string",
+				"defaultValue": "test.txt"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
