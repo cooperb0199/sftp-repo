@@ -67,7 +67,13 @@
 				"outputs": [
 					{
 						"referenceName": "DestinationDataset_pez",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"sourceFolder": {
+								"value": "@pipeline().parameters.sourceFolder",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
