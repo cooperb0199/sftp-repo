@@ -84,8 +84,9 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"sourceFolder": {
-						"type": "string"
+					"sourceFile": {
+						"type": "string",
+						"defaultValue": "''"
 					}
 				},
 				"annotations": [],
@@ -93,6 +94,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "SftpLocation",
+						"fileName": {
+							"value": "@dataset().sourceFile",
+							"type": "Expression"
+						},
 						"folderPath": "/dl-triplink-test123-use1-503014109099-raw"
 					}
 				}
@@ -161,7 +166,7 @@
 							},
 							{
 								"name": "Destination",
-								"value": "/bc-sftp-test-bucket/"
+								"value": "/"
 							}
 						],
 						"typeProperties": {
@@ -179,9 +184,11 @@
 							"sink": {
 								"type": "BinarySink",
 								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings",
+									"type": "SftpWriteSettings",
 									"maxConcurrentConnections": 2,
-									"copyBehavior": "PreserveHierarchy"
+									"copyBehavior": "PreserveHierarchy",
+									"operationTimeout": "01:00:00",
+									"useTempFileRename": true
 								}
 							},
 							"enableStaging": false,
@@ -205,11 +212,10 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "SourceDataset_pez",
+								"referenceName": "DestinationDataset_pez",
 								"type": "DatasetReference",
 								"parameters": {
-									"sourceFolder": "''",
-									"sourceFile": "test.txt"
+									"sourceFile": "''"
 								}
 							}
 						]
@@ -228,7 +234,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_pez')]"
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_pez')]",
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_pez')]"
 			]
 		},
 		{
