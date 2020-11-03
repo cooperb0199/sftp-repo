@@ -5,11 +5,20 @@
 			"referenceName": "Sftp1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sourceFolder": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "SftpLocation",
+				"fileName": {
+					"value": "@dataset().sourceFolder",
+					"type": "Expression"
+				},
 				"folderPath": "/dl-triplink-test123-use1-503014109099-raw"
 			}
 		}
