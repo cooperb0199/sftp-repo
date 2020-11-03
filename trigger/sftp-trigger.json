@@ -8,6 +8,10 @@
 				"pipelineReference": {
 					"referenceName": "CopyPipeline_pez",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"sourceFolder": "@triggerBody().folderPath",
+					"sourceFile": "@triggerBody().fileName"
 				}
 			}
 		],
