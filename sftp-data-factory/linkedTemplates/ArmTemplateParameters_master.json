@@ -12,10 +12,13 @@
 			"value": ""
 		},
 		"Sftp1_properties_typeProperties_host": {
-			"value": "s-b09b4583c9d04233a.server.transfer.us-east-1.amazonaws.com"
+			"value": "s-290b1fe907694ebc8.server.transfer.us-east-1.amazonaws.com"
 		},
 		"Sftp1_properties_typeProperties_userName": {
-			"value": "test"
+			"value": "triplink"
+		},
+		"sftp-trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/885a071e-fd10-4d2d-bc9e-bc7d064f37a8/resourceGroups/sftp-test-group/providers/Microsoft.Storage/storageAccounts/sftp1test1storage"
 		},
 		"containerUri": {
 			"value": ""

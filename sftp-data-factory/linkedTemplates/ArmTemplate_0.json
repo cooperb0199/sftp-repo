@@ -17,11 +17,15 @@
 		},
 		"Sftp1_properties_typeProperties_host": {
 			"type": "string",
-			"defaultValue": "s-b09b4583c9d04233a.server.transfer.us-east-1.amazonaws.com"
+			"defaultValue": "s-290b1fe907694ebc8.server.transfer.us-east-1.amazonaws.com"
 		},
 		"Sftp1_properties_typeProperties_userName": {
 			"type": "string",
-			"defaultValue": "test"
+			"defaultValue": "triplink"
+		},
+		"sftp-trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/885a071e-fd10-4d2d-bc9e-bc7d064f37a8/resourceGroups/sftp-test-group/providers/Microsoft.Storage/storageAccounts/sftp1test1storage"
 		}
 	},
 	"variables": {
@@ -98,6 +102,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": "*",
+						"folderPath": "*",
 						"container": "sftp-test"
 					}
 				}
@@ -190,6 +196,36 @@
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_pez')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_pez')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sftp-trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "CopyPipeline_pez",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/sftp-test/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('sftp-trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/CopyPipeline_pez')]"
 			]
 		}
 	]

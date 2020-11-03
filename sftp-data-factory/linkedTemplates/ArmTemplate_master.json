@@ -17,11 +17,15 @@
 		},
 		"Sftp1_properties_typeProperties_host": {
 			"type": "string",
-			"defaultValue": "s-b09b4583c9d04233a.server.transfer.us-east-1.amazonaws.com"
+			"defaultValue": "s-290b1fe907694ebc8.server.transfer.us-east-1.amazonaws.com"
 		},
 		"Sftp1_properties_typeProperties_userName": {
 			"type": "string",
-			"defaultValue": "test"
+			"defaultValue": "triplink"
+		},
+		"sftp-trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/885a071e-fd10-4d2d-bc9e-bc7d064f37a8/resourceGroups/sftp-test-group/providers/Microsoft.Storage/storageAccounts/sftp1test1storage"
 		},
 		"containerUri": {
 			"type": "string",
@@ -61,6 +65,9 @@
 					},
 					"Sftp1_properties_typeProperties_userName": {
 						"value": "[parameters('Sftp1_properties_typeProperties_userName')]"
+					},
+					"sftp-trigger_properties_typeProperties_scope": {
+						"value": "[parameters('sftp-trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
