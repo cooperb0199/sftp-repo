@@ -179,11 +179,9 @@
 							"sink": {
 								"type": "BinarySink",
 								"storeSettings": {
-									"type": "SftpWriteSettings",
+									"type": "AzureBlobStorageWriteSettings",
 									"maxConcurrentConnections": 2,
-									"copyBehavior": "PreserveHierarchy",
-									"operationTimeout": "01:00:00",
-									"useTempFileRename": false
+									"copyBehavior": "PreserveHierarchy"
 								}
 							},
 							"enableStaging": false,
@@ -207,13 +205,11 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_pez",
+								"referenceName": "SourceDataset_pez",
 								"type": "DatasetReference",
 								"parameters": {
-									"sourceFolder": {
-										"value": "@pipeline().parameters.sourceFolder",
-										"type": "Expression"
-									}
+									"sourceFolder": "''",
+									"sourceFile": "test.txt"
 								}
 							}
 						]
@@ -232,9 +228,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_pez')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_pez')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_pez')]"
 			]
 		},
 		{
