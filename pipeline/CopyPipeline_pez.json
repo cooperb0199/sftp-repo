@@ -46,14 +46,7 @@
 						}
 					},
 					"enableStaging": false,
-					"enableSkipIncompatibleRow": false,
-					"logStorageSettings": {
-						"linkedServiceName": {
-							"referenceName": "AzureBlobStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"path": "sftp-test"
-					}
+					"enableSkipIncompatibleRow": false
 				},
 				"inputs": [
 					{
