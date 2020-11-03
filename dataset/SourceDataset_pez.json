@@ -24,10 +24,6 @@
 					"value": "@dataset().sourceFile",
 					"type": "Expression"
 				},
-				"folderPath": {
-					"value": "@dataset().sourceFolder",
-					"type": "Expression"
-				},
 				"container": "sftp-test"
 			}
 		}
